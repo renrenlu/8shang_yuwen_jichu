@@ -2730,7 +2730,7 @@
           "canonicalId": "poetry-memory-direct-110",
           "number": 110,
           "label": "直接型默写",
-          "prompt": "110.\n，君子好逑。（《诗经•关雎》）",
+          "prompt": "110. ________，君子好逑。（《诗经·关雎》）",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
           "sourcePage": 4,
