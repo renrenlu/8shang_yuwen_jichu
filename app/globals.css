@@ -222,9 +222,15 @@ footer p { margin: 5px 0 0; font-family: system-ui, sans-serif; font-size: 11px;
 .modal-backdrop { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 22px; background: rgba(31,27,24,.78); backdrop-filter: blur(8px); }
 .page-modal { width: min(980px, 96vw); height: min(92vh, 1100px); display: flex; flex-direction: column; border-radius: 10px; overflow: hidden; background: var(--paper); box-shadow: 0 30px 90px rgba(0,0,0,.35); }
 .modal-header { min-height: 58px; display: flex; justify-content: space-between; align-items: center; padding: 0 18px 0 22px; border-bottom: 1px solid var(--line); background: #fffdf8; }
-.modal-header > div { display: flex; gap: 12px; align-items: baseline; }
+.modal-title { display: flex; gap: 12px; align-items: baseline; }
 .modal-header span { color: var(--muted); font-family: system-ui, sans-serif; font-size: 12px; }
-.modal-header button { border: 0; background: none; cursor: pointer; font-size: 28px; line-height: 1; }
+.modal-actions, .modal-pager { display: flex; align-items: center; gap: 8px; }
+.modal-page-button { min-height: 36px; display: inline-flex; align-items: center; gap: 6px; padding: 0 11px; border: 1px solid #d5ddef; border-radius: 10px; background: #fff; color: var(--blue); cursor: pointer; font-size: 15px; font-weight: 760; }
+.modal-page-button span { color: inherit; font-size: 12px; }
+.modal-page-button:hover:not(:disabled) { border-color: var(--blue); background: #f2f5ff; }
+.modal-page-button:disabled { opacity: .35; cursor: not-allowed; }
+.modal-close { width: 38px; height: 38px; border: 0; border-radius: 10px; background: none; color: var(--ink); cursor: pointer; font-size: 28px; line-height: 1; }
+.modal-close:hover { background: #eef1f8; }
 .page-image-wrap { flex: 1; overflow: auto; padding: 22px; }
 .page-image-wrap img { display: block; width: min(100%, 850px); height: auto; margin: 0 auto; box-shadow: 0 8px 30px rgba(61,48,35,.12); }
 
@@ -243,6 +249,12 @@ footer p { margin: 5px 0 0; font-family: system-ui, sans-serif; font-size: 11px;
   .hero h1 { font-size: clamp(43px, 13vw, 66px); }
   .hero-description { font-size: 15px; }
   .hero-actions > * { width: 100%; }
+  .modal-backdrop { padding: 8px; }
+  .page-modal { width: 100%; height: 96vh; }
+  .modal-header { min-height: 66px; padding: 8px 10px 8px 14px; }
+  .modal-title { display: grid; gap: 2px; }
+  .modal-page-button { min-width: 38px; justify-content: center; padding-inline: 9px; }
+  .modal-page-button span { display: none; }
   .hero-visual { border-radius: 20px; }
   .hero-stat-card { left: 10px; right: 10px; bottom: 10px; padding: 10px; border-radius: 13px; }
   .hero-stat-card strong { font-size: 18px; }

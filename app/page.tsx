@@ -39,6 +39,16 @@ type ModalPage = { sectionId: string; page: number; label: string } | null;
 
 const builtInSections = questionBank.sections as Section[];
 const LETTERS = ["A", "B", "C", "D"];
+const SOURCE_PAGE_COUNTS: Record<string, number> = {
+  chengyu: 12,
+  ciyu: 11,
+  "poetry-memory": 15,
+  "gushi-compare": 22,
+  "sentence-order": 13,
+  literature: 34,
+  "ziyin-a": 13,
+  "ziyin-b": 13,
+};
 const STORAGE = {
   wrong: "yuwen-wrong-v1",
   stats: "yuwen-stats-v1",
@@ -426,7 +436,7 @@ export default function Home() {
 
           <div className="source-actions">
             {question.sourcePage && builtInSections.some((item) => item.id === question.sectionId) && (
-              <button className="source-button" onClick={() => setModalPage({ sectionId: question.sectionId, page: question.sourcePage!, label: `原题页 · PDF 第 ${question.sourcePage} 页` })}>
+              <button className="source-button" onClick={() => setModalPage({ sectionId: question.sectionId, page: question.sourcePage!, label: "原题页" })}>
                 查看 PDF 第 {question.sourcePage} 页 {question.needsSource ? "（建议对照）" : ""}
               </button>
             )}
@@ -484,7 +494,13 @@ export default function Home() {
           )}
         </section>
 
-        {modalPage && <PageModal page={modalPage} onClose={() => setModalPage(null)} />}
+        {modalPage && (
+          <PageModal
+            page={modalPage}
+            onPageChange={(nextPage) => setModalPage((current) => current ? { ...current, page: nextPage } : current)}
+            onClose={() => setModalPage(null)}
+          />
+        )}
       </main>
     );
   }
@@ -599,18 +615,42 @@ export default function Home() {
   );
 }
 
-function PageModal({ page, onClose }: { page: Exclude<ModalPage, null>; onClose: () => void }) {
+function PageModal({
+  page,
+  onPageChange,
+  onClose,
+}: {
+  page: Exclude<ModalPage, null>;
+  onPageChange: (page: number) => void;
+  onClose: () => void;
+}) {
+  const totalPages = SOURCE_PAGE_COUNTS[page.sectionId] ?? page.page;
+  const goToPage = (nextPage: number) => onPageChange(Math.min(totalPages, Math.max(1, nextPage)));
+
   useEffect(() => {
-    const close = (event: KeyboardEvent) => event.key === "Escape" && onClose();
-    window.addEventListener("keydown", close);
-    return () => window.removeEventListener("keydown", close);
-  }, [onClose]);
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+      if (event.key === "ArrowLeft" && page.page > 1) goToPage(page.page - 1);
+      if (event.key === "ArrowRight" && page.page < totalPages) goToPage(page.page + 1);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [onClose, onPageChange, page.page, totalPages]);
 
   return (
     <div className="modal-backdrop" role="dialog" aria-modal="true" aria-label={page.label} onMouseDown={onClose}>
       <div className="page-modal" onMouseDown={(event) => event.stopPropagation()}>
-        <div className="modal-header"><div><strong>{page.label}</strong><span>第 {page.page} 页</span></div><button onClick={onClose} aria-label="关闭">×</button></div>
-        <div className="page-image-wrap"><img src={imagePath(page.sectionId, page.page)} alt={`${page.label}，第 ${page.page} 页`} /></div>
+        <div className="modal-header">
+          <div className="modal-title"><strong>{page.label}</strong><span>PDF 第 {page.page} / {totalPages} 页</span></div>
+          <div className="modal-actions">
+            <div className="modal-pager" aria-label="PDF 翻页">
+              <button className="modal-page-button" onClick={() => goToPage(page.page - 1)} disabled={page.page <= 1} aria-label="上一页">←<span>上一页</span></button>
+              <button className="modal-page-button" onClick={() => goToPage(page.page + 1)} disabled={page.page >= totalPages} aria-label="下一页"><span>下一页</span>→</button>
+            </div>
+            <button className="modal-close" onClick={onClose} aria-label="关闭">×</button>
+          </div>
+        </div>
+        <div key={`${page.sectionId}-${page.page}`} className="page-image-wrap"><img src={imagePath(page.sectionId, page.page)} alt={`${page.label}，PDF 第 ${page.page} 页`} /></div>
       </div>
     </div>
   );
