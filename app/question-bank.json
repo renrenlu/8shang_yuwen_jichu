@@ -172,7 +172,7 @@
           "prompt": "15.下列句子中加点成语使用有误的一项是\nA.在“红五月”读书活动期间，语文老师就如何“读好书”的话题说长道短，让我们受益匪浅。\nB. 贺州客家围屋以其独特的建筑风格吸引众多游客，我们不得不叹服建造者的别具匠心。\nc.读文天祥的《过零丁洋》，我们的爱国情怀会油然而生。\nD.一个打扮并不华贵却端庄严肃而有美德的人，是会人肃然超敬的。",
           "answer": "A",
           "mode": "choice",
-          "sourcePage": 2,
+          "sourcePage": 3,
           "answerPage": null,
           "needsSource": false
         },
@@ -337,7 +337,7 @@
           "prompt": "请完成原资料第 30 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "B",
           "mode": "choice",
-          "sourcePage": 4,
+          "sourcePage": 5,
           "answerPage": null,
           "needsSource": true
         },
@@ -403,7 +403,7 @@
           "prompt": "36.下列句子中，加点的成语使用不恰当的一项是\n）\nA. 风光秀丽的咯纳斯，以它得天独厚的旅游资源，吸引|着众多的中外游客前往观光游览。\nB. 尽管不少人对即将出台的考试法期望值很高，但也有一些人对此不以为然，特别是对它能起的作用\n表示了谨慎的乐观。\nC. 雀巢公司利用碘摄入量问题来为其奶粉碘含量超标辩解，这显然是南辕北辙，且不能白圆其说。\nD.6月6日，NBA 东区决赛，活塞队获胜后，主帅布朗喜形于色，而热火队教练大范甘迪则只能垂头\n丧气。",
           "answer": "C",
           "mode": "choice",
-          "sourcePage": 5,
+          "sourcePage": 6,
           "answerPage": null,
           "needsSource": false
         },
@@ -919,7 +919,7 @@
           "prompt": "请完成原资料第 10 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "B",
           "mode": "choice",
-          "sourcePage": 3,
+          "sourcePage": 2,
           "answerPage": null,
           "needsSource": true
         },
@@ -930,7 +930,7 @@
           "prompt": "请完成原资料第 11 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "D",
           "mode": "choice",
-          "sourcePage": 3,
+          "sourcePage": 2,
           "answerPage": null,
           "needsSource": true
         },
@@ -1051,7 +1051,7 @@
           "prompt": "请完成原资料第 22 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "A",
           "mode": "choice",
-          "sourcePage": 5,
+          "sourcePage": 4,
           "answerPage": null,
           "needsSource": true
         },
@@ -1304,7 +1304,7 @@
           "prompt": "45. 依次填人下面横线处的词语最恰当的一组是\n我们在唐代诗人狂做的背后也能看到_\n一方面，他们躬逢盛世，_飞扬，如孔雀\n开屏般绚丽多彩；另一方面，他们放下身段，态度谦恭，甚至__，如孔雀背后的狼狈不堪。现\n实的窘迫、人性的复杂，使得多种看似矛盾对立的东西却_\n。这才是真实的人生。\nA.卑贱 神采 前倨后恭 浑然天成\nB. 卑微 个性 阿谀奉承 浑然一体\nC. 卑微 神采 阿谀奉承 浑然天成\nD. 卑贱 个性 前倨后茶 浑然一体",
           "answer": "B",
           "mode": "choice",
-          "sourcePage": 8,
+          "sourcePage": 9,
           "answerPage": null,
           "needsSource": false
         },
@@ -1370,7 +1370,7 @@
           "prompt": "51. 依次填人下面句子横线处的词语最恰当的一项是\n放假在即，各种校外培训机构又在广州大大小小的中小学校及幼儿园门前上演“招生秀”，这些\n培训机构_\n，而培训机构的教学质量与广大学子的切身利益__，所以规范校外培训机\n的发展已经__了。\nA.鱼龙混杂 息息相关 刻不容缓\nB. 鱼目混珠 息息相关 众望所归\nC. 鱼龙混杂 休戚与共 众望所归\nD. 鱼目混珠 休戚与共 刻不容缓",
           "answer": "A",
           "mode": "choice",
-          "sourcePage": 9,
+          "sourcePage": 10,
           "answerPage": null,
           "needsSource": false
         },
@@ -1809,7 +1809,7 @@
           "prompt": "33，不闻机杼声，\n（《木兰诗》）",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 1,
+          "sourcePage": 2,
           "answerPage": 12,
           "needsSource": false
         },
@@ -2265,7 +2265,7 @@
           "prompt": "71.\n_，盖竹柏影也。（《记承天寺夜游》）",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 2,
+          "sourcePage": 3,
           "answerPage": 13,
           "needsSource": false
         },
@@ -2721,7 +2721,7 @@
           "prompt": "109.关关雎鸠，\n（《诗经．关雎》）",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 3,
+          "sourcePage": 4,
           "answerPage": 13,
           "needsSource": false
         },
@@ -3177,7 +3177,7 @@
           "prompt": "147.\n二十三年奔置身。（《酬乐天扬州初逢席上见赠》）",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 4,
+          "sourcePage": 5,
           "answerPage": 13,
           "needsSource": false
         },
@@ -3633,7 +3633,7 @@
           "prompt": "直接型默写第 185 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 5,
+          "sourcePage": 6,
           "answerPage": 13,
           "needsSource": true
         },
@@ -3825,7 +3825,7 @@
           "prompt": "理解性默写第 1 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 6,
           "answerPage": 14,
           "needsSource": true
         },
@@ -3837,7 +3837,7 @@
           "prompt": "理解性默写第 2 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 6,
           "answerPage": 14,
           "needsSource": true
         },
@@ -3849,7 +3849,7 @@
           "prompt": "理解性默写第 3 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 6,
           "answerPage": 14,
           "needsSource": true
         },
@@ -3861,7 +3861,7 @@
           "prompt": "理解性默写第 4 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 6,
           "answerPage": 14,
           "needsSource": true
         },
@@ -3873,7 +3873,7 @@
           "prompt": "理解性默写第 5 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 6,
           "answerPage": 14,
           "needsSource": true
         },
@@ -3885,7 +3885,7 @@
           "prompt": "理解性默写第 6 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 6,
           "answerPage": 14,
           "needsSource": true
         },
@@ -3897,7 +3897,7 @@
           "prompt": "理解性默写第 7 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 6,
           "answerPage": 14,
           "needsSource": true
         },
@@ -3909,7 +3909,7 @@
           "prompt": "理解性默写第 8 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 6,
           "answerPage": 14,
           "needsSource": true
         },
@@ -3921,7 +3921,7 @@
           "prompt": "理解性默写第 9 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 6,
           "answerPage": 14,
           "needsSource": true
         },
@@ -3933,7 +3933,7 @@
           "prompt": "理解性默写第 10 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 6,
           "answerPage": 14,
           "needsSource": true
         },
@@ -3945,7 +3945,7 @@
           "prompt": "理解性默写第 11 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 6,
           "answerPage": 14,
           "needsSource": true
         },
@@ -3957,7 +3957,7 @@
           "prompt": "理解性默写第 12 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 6,
           "answerPage": 14,
           "needsSource": true
         },
@@ -3969,7 +3969,7 @@
           "prompt": "理解性默写第 13 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 6,
           "answerPage": 14,
           "needsSource": true
         },
@@ -4245,7 +4245,7 @@
           "prompt": "36. 杜甫《春望》中写战火连绵，久盼家音，抒发千古以来战争中人们的共同感受的名句是：",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 7,
+          "sourcePage": 8,
           "answerPage": 14,
           "needsSource": false
         },
@@ -4497,7 +4497,7 @@
           "prompt": "57. 杜甫《春望》中，\n与他的《月夜忆舍弟》一诗中“寄丰\n长不达，况乃末休兵〞两句表达的意思相近。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 8,
+          "sourcePage": 9,
           "answerPage": 14,
           "needsSource": false
         },
@@ -4737,7 +4737,7 @@
           "prompt": "理解性默写第 77 题：请查看原题页后完成默写。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 10,
+          "sourcePage": 9,
           "answerPage": 14,
           "needsSource": true
         },
@@ -4989,7 +4989,7 @@
           "prompt": "98. 欧阳修的《醉翁亭记》中写出醉翁言在此而意在彼，情趣所在的句子是：",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 10,
+          "sourcePage": 11,
           "answerPage": 15,
           "needsSource": false
         },
@@ -5285,7 +5285,7 @@
           "prompt": "请完成原资料第 2 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "C",
           "mode": "choice",
-          "sourcePage": 2,
+          "sourcePage": 1,
           "answerPage": null,
           "needsSource": true
         },
@@ -5307,7 +5307,7 @@
           "prompt": "请完成原资料第 4 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "C",
           "mode": "choice",
-          "sourcePage": 3,
+          "sourcePage": 2,
           "answerPage": null,
           "needsSource": true
         },
@@ -5450,7 +5450,7 @@
           "prompt": "请完成原资料第 17 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "B",
           "mode": "choice",
-          "sourcePage": 8,
+          "sourcePage": 7,
           "answerPage": null,
           "needsSource": true
         },
@@ -5472,7 +5472,7 @@
           "prompt": "请完成原资料第 19 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "C",
           "mode": "choice",
-          "sourcePage": 9,
+          "sourcePage": 8,
           "answerPage": null,
           "needsSource": true
         },
@@ -5527,7 +5527,7 @@
           "prompt": "请完成原资料第 24 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "A",
           "mode": "choice",
-          "sourcePage": 11,
+          "sourcePage": 10,
           "answerPage": null,
           "needsSource": true
         },
@@ -5560,7 +5560,7 @@
           "prompt": "27、对这两首诗理解和分析不恰当的一是（）\nB.《春日即事》第三句是诗意之转，诗人所见\nA.《酬乐天扬州初逢席上见赠》首联写自己被\n到的是车水马龙的扬尘之景，而自己的门\n弃置在巴山楚水这个凄凉的地方，度过了\n前却是可以“张罗”捕鸟，不禁感慨万干。\n二十多年，饱含了诗人无限的心酸。\nC.《饮酒》（其五）中，“见”写出了诗人看\nB.《忆江上吴处士》先叙与朋友离别情景，再\n到南山美景时的随意与自然，体现了作者心\n回忆昔日聚会之乐，最后从回忆到现实，写\n灵的自由和惬意；《春日即事》用“网”字，\n对朋友的一片思念之情，行文曲折而笔势\n突出诗人要挣脱春天、躲避春天的心情。\n流畅。\nD. 《饮酒》（其五）以情为主，融情入景，写\nC.《酬乐天扬州初逢席上见赠》借用“闻笛\n出了诗人归隐田园后生活悠闲自得的心境；\n赋”这个典故暗示贬谪时间长久，表现了对\n《春日即事》表达了作者政治上失意后的寂\n世态变迁的怅惘心情；《忆江上吴处士》首\n寞以及对世态炎凉的无奈与感叹。\n联中的“蟾蜍亏复圆”句，既表示友人离开\n(二十九）阅读下面两首诗，完成问题。\n已经很长时间了，又暗含怀念之意。\n饮酒（其五）\nD. 《酬乐天扬州初逢席上见赠》主要表达了作\n陶渊明\n者忧伤中更显乐观豁达的情怀。《忆江上吴\n结庐在人境，而无车马喧。\n处士》表达了诗人对吴处士的深深思念之情。\n问君何能尔？心远地自偏。\n(二十八）阅读下面两首诗，完成问题。\n采菊东篱下，悠然见南山。\n饮酒（其五）\n山气日夕佳，飞乌相与还。\n陶渊明\n此中有真意，欲辨已忘言。\n结庐在人境，而无车马喧。\n辋川 六言（其五）\n问君何能尔？心远地自偏。\n王维\n采菊东篱下，悠然见南山。\n山下孤烟远村，天边独树高原。\n山气日夕佳，飞乌相与还。\n一瓢颜回陋巷”，五柳先生对门。\n此中有真意，欲辦已忘言。\n注释 (①辋川：地名。②一瓢颜回陋巷：孔子在《论\n春日即事\n语．雍也》中赞美弟子颜回安贫乐道的高尚品质。\n李弥逊®\n29. 选出对上面两首诗赏析不正确的一项（\n小雨丝丝欲网春，落花狼藉近黄昏。\nA.《饮酒》（其五）的前四句道出了作者的体\n车尘不到张罗地°，宿鸟声中自拖门。\n验：要拥有心灵的宁静，就应该脱离喧嚣的\n注释 ①李弥逊(1085—1153），字似之，吴县\n环境，投身大自然，尽情体会生活的乐趣。\n人，历任中书合人、户部侍郎等职。因竭力反对\nB.《辋川六言》（其五）中“天边独树高原”\n秦桧的投降政策而被免职。②张罗地：指门可罗\n中的“独树”与“孤烟”相对，“高原”与\n雀、十分冷落的地方。\n“远村”相连，就更感苍凉寂寞。",
           "answer": "C",
           "mode": "choice",
-          "sourcePage": 11,
+          "sourcePage": 12,
           "answerPage": null,
           "needsSource": false
         },
@@ -5582,7 +5582,7 @@
           "prompt": "请完成原资料第 29 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "A",
           "mode": "choice",
-          "sourcePage": 13,
+          "sourcePage": 12,
           "answerPage": null,
           "needsSource": true
         },
@@ -5758,7 +5758,7 @@
           "prompt": "请完成原资料第 45 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "C",
           "mode": "choice",
-          "sourcePage": 19,
+          "sourcePage": 18,
           "answerPage": null,
           "needsSource": true
         },
@@ -5999,7 +5999,7 @@
           "prompt": "16.下列语段空白处填人四个句子，顺序最恰当的一项是\n国无德不兴，人无德不立，在传承千年的中国传统文化中，\n_，更要立志报效祖国。\n①还是“修身、齐家、治国、平天下〞的人生追求\n②无论是“天下兴亡，匹夫有责”的家国大义\n③修身立德强调的从来不只是在私人领域做到“独善其身”\n④抑或是“已所不欲，勿施于人”的推己及人\nA. ②①③④\nB. ②①④③\nC. ③②①④\nD. ③④①②",
           "answer": "B",
           "mode": "choice",
-          "sourcePage": 3,
+          "sourcePage": 4,
           "answerPage": null,
           "needsSource": false
         },
@@ -6120,7 +6120,7 @@
           "prompt": "27. 给下列句子排序，最恰当的一项是\n(\n）\n①如果能做到这些，你一定会成为一个富有创造力的人。\n②任何人都拥有创造力，首先要坚信这一点。\n③一且产生小的灵感，相信它的价值，并锲而不舍地把它发展下去。\n④不满足于一个答案，而去探求新思路，去运用所得的知识。\n⑤关键是要经常保持好奇心，不断积累知识。\nA. ①③④⑤②\nB. ⑤④①②③\nC. ②⑤④③①\nD. ③②⑤④①",
           "answer": "C",
           "mode": "choice",
-          "sourcePage": 5,
+          "sourcePage": 6,
           "answerPage": null,
           "needsSource": false
         },
@@ -6252,7 +6252,7 @@
           "prompt": "39. 给下列句子排序，最合理的一项是\n①过分草率地决定，可能会给今后的生活和工作带来不必要的麻烦，也会产生悔不当初的愧疚。\n②所以选择既要把握好时机，又要仔细慎重。\n③人生在世有很多的时候需要选择，但是选择是一个艰难的过程，何去何从常常会让我们犹豫不决。\n④除此之外，就是在决策的时候，不要一味地依赖别人的意见，他人并不知道你真实的处境，无法设\n身处地地从你的角度出发来选择。\n⑤过分地彷徨，可能会错失良机，让机会从面前溜走，造成“机不可失，时不再来”的感叹。\nA. ③①⑤②④\nB. ③⑤①②④\n¢. ①⑤③②④\nD. ③⑤①④②",
           "answer": "D",
           "mode": "choice",
-          "sourcePage": 7,
+          "sourcePage": 8,
           "answerPage": null,
           "needsSource": false
         },
@@ -6307,7 +6307,7 @@
           "prompt": "44， 在下面一段文字横线处填人语句，街接最恰当的一项是\n古代使用筷子的习俗和礼节一直流传至今。\n①在握筷时，不可取位过高，这样容易被认为清高孤做，同时也有远离父母家门的嫌疑；也不可取位\n过低，这样会显得缺乏教养。\n②尤其被忌讳的一点是，切不可将筷子插在饭菜上，古俗认为只有在祭祀先人时才这样做，平时插筷\n则很不吉利。\n③在摆放位置上，人们总是把筷子整齐地放置于进餐者的右手边，筷子用于手执的一端要与桌面边缘\n垂直(如果是圆桌，摆放角度要与半径线重合），不要将筷子用于进食的一端朝泉外摆放，也不要将\n一双筷子一反一正并列摆放。\n④用餐完毕后，要将筷子轻轻放在桌上，不可随意放置。\n⑤筷子不要在桌上延伸过长，跨别人面前夹菜是不礼貌的。\n⑥在举筷夹菜时，不要游移不定，也不要旁若无人地乱找好菜。\nA. ③①②④⑤⑥ B. ③①⑥⑤④②\nC. ①⑥③②⑤④\nD. ①④⑤②③⑥",
           "answer": "B",
           "mode": "choice",
-          "sourcePage": 8,
+          "sourcePage": 9,
           "answerPage": null,
           "needsSource": false
         },
@@ -6351,7 +6351,7 @@
           "prompt": "请完成原资料第 48 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "A",
           "mode": "choice",
-          "sourcePage": 10,
+          "sourcePage": 9,
           "answerPage": null,
           "needsSource": true
         },
@@ -6406,7 +6406,7 @@
           "prompt": "请完成原资料第 53 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "D",
           "mode": "choice",
-          "sourcePage": 10,
+          "sourcePage": 11,
           "answerPage": null,
           "needsSource": true
         },
@@ -6581,7 +6581,7 @@
           "prompt": "请完成原资料第 7 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 2,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6592,7 +6592,7 @@
           "prompt": "请完成原资料第 8 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 2,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6603,7 +6603,7 @@
           "prompt": "请完成原资料第 9 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 2,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6614,7 +6614,7 @@
           "prompt": "请完成原资料第 10 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 2,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6625,7 +6625,7 @@
           "prompt": "请完成原资料第 11 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 2,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6636,7 +6636,7 @@
           "prompt": "请完成原资料第 12 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 2,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6647,7 +6647,7 @@
           "prompt": "请完成原资料第 13 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 2,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6658,7 +6658,7 @@
           "prompt": "请完成原资料第 14 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 3,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6669,7 +6669,7 @@
           "prompt": "请完成原资料第 15 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 3,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6680,7 +6680,7 @@
           "prompt": "请完成原资料第 16 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 3,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6691,7 +6691,7 @@
           "prompt": "请完成原资料第 17 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 3,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6702,7 +6702,7 @@
           "prompt": "请完成原资料第 18 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 3,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6713,7 +6713,7 @@
           "prompt": "请完成原资料第 19 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 4,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6724,7 +6724,7 @@
           "prompt": "请完成原资料第 20 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 4,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6735,7 +6735,7 @@
           "prompt": "请完成原资料第 21 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 4,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6746,7 +6746,7 @@
           "prompt": "请完成原资料第 22 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 4,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6757,7 +6757,7 @@
           "prompt": "请完成原资料第 23 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 4,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6768,7 +6768,7 @@
           "prompt": "请完成原资料第 24 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 5,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6779,7 +6779,7 @@
           "prompt": "请完成原资料第 25 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 5,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6790,7 +6790,7 @@
           "prompt": "请完成原资料第 26 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 5,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6801,7 +6801,7 @@
           "prompt": "请完成原资料第 27 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 5,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6812,7 +6812,7 @@
           "prompt": "请完成原资料第 28 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 5,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6823,7 +6823,7 @@
           "prompt": "请完成原资料第 29 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 6,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6834,7 +6834,7 @@
           "prompt": "请完成原资料第 30 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 6,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6845,7 +6845,7 @@
           "prompt": "请完成原资料第 31 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 6,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6856,7 +6856,7 @@
           "prompt": "请完成原资料第 32 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 6,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6867,7 +6867,7 @@
           "prompt": "请完成原资料第 33 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 6,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6878,7 +6878,7 @@
           "prompt": "请完成原资料第 34 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 6,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6889,7 +6889,7 @@
           "prompt": "请完成原资料第 35 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 6,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6900,7 +6900,7 @@
           "prompt": "请完成原资料第 36 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 7,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6911,7 +6911,7 @@
           "prompt": "请完成原资料第 37 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 7,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6922,7 +6922,7 @@
           "prompt": "请完成原资料第 38 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 7,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6933,7 +6933,7 @@
           "prompt": "请完成原资料第 39 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 7,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6944,7 +6944,7 @@
           "prompt": "请完成原资料第 40 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 7,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6955,7 +6955,7 @@
           "prompt": "请完成原资料第 41 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 8,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6966,7 +6966,7 @@
           "prompt": "请完成原资料第 42 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 8,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6977,7 +6977,7 @@
           "prompt": "请完成原资料第 43 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 8,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6988,7 +6988,7 @@
           "prompt": "请完成原资料第 44 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 8,
           "answerPage": 32,
           "needsSource": true
         },
@@ -6999,7 +6999,7 @@
           "prompt": "请完成原资料第 45 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 9,
+          "sourcePage": 8,
           "answerPage": 32,
           "needsSource": true
         },
@@ -7208,7 +7208,7 @@
           "prompt": "64.名著导读。\n乔纳森．斯威夫特(1667—1745）是_\n_(国家名）18 世纪前期最优秀的讽刺作家和政论关\n他的小说_\n_以清新的文字将读者带进了一个奇异的幻境。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 15,
+          "sourcePage": 16,
           "answerPage": 32,
           "needsSource": false
         },
@@ -7263,7 +7263,7 @@
           "prompt": "69.阅读下面的文字，回答问题。\n(1）《西游记》第六回中大圣变成一座土地庙，“只有尾巴不好收，竖在后面，变做一根旗杆”，被赶\n到的真君识破真相。\n真君是怎样识破大圣变化的？你从这里悟出了什么道理？\n(2)薛霸双手举起来，望林冲脑袋上便劈下来。说时迟，那时快，薛霸的棍恰举起来，只见松树背后\n雷鸣也似一声，那条铁禅校飞将来，把这水火棍一隔，丢去九霄云外，跳出一个胖大和尚來，喝\n道：“酒家在林子里听你多时！〞两个公人看那和尚时，穿一领皂布直被，跨一口戒刀，提起禅\n杖，轮起来打两个公人。林冲方才闪开眼看时，认得是鲁智深。林冲连忙叫道：“师兄，不可\n下手！ 我有话说。”智深听得，收住禅杖。两个公差呆了半晌，动掸不得。\n①简要说说选段中画线句的表达效果。\n②鲁智深在大闹野猪林之前做的哪几件事体现了他惩恶扬善、锄强扶弱的特点？",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 17,
+          "sourcePage": 18,
           "answerPage": 33,
           "needsSource": false
         },
@@ -7285,7 +7285,7 @@
           "prompt": "请完成原资料第 71 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 20,
+          "sourcePage": 18,
           "answerPage": 33,
           "needsSource": true
         },
@@ -7296,7 +7296,7 @@
           "prompt": "请完成原资料第 72 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 20,
+          "sourcePage": 18,
           "answerPage": 33,
           "needsSource": true
         },
@@ -7329,7 +7329,7 @@
           "prompt": "请完成原资料第 75 题。识别文字不完整，建议点击“查看原题页”对照作答。",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 22,
+          "sourcePage": 20,
           "answerPage": 33,
           "needsSource": true
         },
@@ -7395,7 +7395,7 @@
           "prompt": "81.走近名著。\nA 亦垂泪道：“罢，罢，罢！ 生时服侍哥哥，死了也只是哥哥部下一个小鬼！”言讫泪下，便\n觉身体有些沉重。当时泪酒，拜别了宋江下船。回到润州，果然药发身死。A临死之时，嘱咐从\n人：“我死了，可千万将我灵柩去楚州南门外蓼儿洼和哥哥一处埋葬。”嘱罢而死。\n(1)这段文字节选自《水浒传》，选段中的A是__。他死的原因是_\n(2)从选段中能看出 A 具有怎样的性格特点？",
           "answer": "请对照参考答案原页自评",
           "mode": "self",
-          "sourcePage": 25,
+          "sourcePage": 26,
           "answerPage": 33,
           "needsSource": false
         },
@@ -8450,7 +8450,7 @@
           "prompt": "85. 下列词语中加点字注音完全正确的一项是\n.校对(jiao)\n狂澜(lan）\n记载(zGi）\n锋芒毕露（lou)\n着落(zhuo）\n莅临（h）\n蓦然(mo）\n惟妙惟肖(xico)\n\n专脑一字音、字形>\nC.星宿(xiu）\n要塞(sdi)\n周济（）\n气冲斗牛(dou)\nD. 称职(cheng)\n追湖(su）\n辟邪（bi）\n悲天悯人(min）",
           "answer": "B",
           "mode": "choice",
-          "sourcePage": 10,
+          "sourcePage": 11,
           "answerPage": null,
           "needsSource": false
         },
@@ -9021,7 +9021,7 @@
           "prompt": "34. 下列词语中加点字的字音、字形完全正确的一项是\nA. 平廟(yong)\n微妙( mido)\n躁热(z00)\n人目三分(mu）\nB. 猝然( chu）\n骤雨(zhou)\n室息(zhi）\n筋疲力尽(jng)\nC. 吹嘘(X）\n炽热(zhi）\n伴侣(心）\n踱来踱去(du）\nD. 沥青（』）\n荧光(ying)\n炼制(lian）\n和颜悦色(yue）",
           "answer": "D",
           "mode": "choice",
-          "sourcePage": 4,
+          "sourcePage": 5,
           "answerPage": null,
           "needsSource": false
         },
@@ -9208,7 +9208,7 @@
           "prompt": "51. 下列词语中加点字的字音、字形完全正确的一项是\n(\nA. 探讨(tao)\n陨石(yun）\n踊跃(ying）\n穿流不息(chuan)\nB. 推搡(shang）\n恐怖(bu）\n弥漫(ni）\n消声匿迹(xido)\nC.奠定( dian）\n沙砾(⅛）\n狩猎(shiu)\n瞬息万变(shun）\nD. 阻碍(qi)\n褪色(tui）\n束缚(fu）\n平易近人(in)",
           "answer": "D",
           "mode": "choice",
-          "sourcePage": 6,
+          "sourcePage": 7,
           "answerPage": null,
           "needsSource": false
         },
@@ -9395,7 +9395,7 @@
           "prompt": "68．下列词语中加点字的字音、字形完全正确的一项是\nA. 颠倒( dian)\n勾当(gou)\n聒噪( gua）\n轻而一举(yi）\n）\nB. 腼腆(dian）\n作揖(Zu6）\n见教(jido）\n画龙点景(ing）\nC. 盘缠(pdn）\n心翘(qido）\n星宿(xiu）\n自暴自弃(pu）\n桑梓(z）\n侥幸(j8o）\n轩敞(chang)\n山穷水尽( qiong)",
           "answer": "D",
           "mode": "choice",
-          "sourcePage": 8,
+          "sourcePage": 9,
           "answerPage": null,
           "needsSource": false
         },
@@ -9582,7 +9582,7 @@
           "prompt": "85. 下刻词语中加点字注音完全正确的一项是\n．校对(jo)\n狂澜(lan)\n记载(zGi）\n锋芒毕露（lou)\n着落(zhuo）\n莅临（N）\n蓦然(mo）\n惟妙惟肖(xico)\n\nC.星宿(xiu）\n要塞(sdi)\n周济（j）\n气冲斗牛(dou)\nD. 称职(cheng)\n追湖(su）\n辟邪（bi）\n悲天悯人(min）",
           "answer": "B",
           "mode": "choice",
-          "sourcePage": 10,
+          "sourcePage": 11,
           "answerPage": null,
           "needsSource": false
         },

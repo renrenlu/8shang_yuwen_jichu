@@ -73,6 +73,14 @@ function imagePath(sectionId: string, page: number) {
   return `/source/${sectionId}/page-${String(page).padStart(2, "0")}.jpg`;
 }
 
+function questionCropPath(sectionId: string, questionId: string) {
+  return `/question-crops/${sectionId}/${questionId}.webp`;
+}
+
+function sectionIllustrationPath(sectionId: string) {
+  return `/illustrations/${sectionId}.jpg`;
+}
+
 export default function Home() {
   const [extraSections, setExtraSections] = useState<Section[]>([]);
   const [view, setView] = useState<"home" | "practice" | "wrong">("home");
@@ -373,6 +381,7 @@ export default function Home() {
 
     const question = session.questions[index];
     const section = sectionById.get(question.sectionId);
+    const hasOriginalCrop = builtInSections.some((item) => item.id === question.sectionId);
     const progress = ((index + 1) / session.questions.length) * 100;
     return (
       <main className="practice-shell">
@@ -392,7 +401,27 @@ export default function Home() {
             {question.label && <span>{question.label}</span>}
             <span>原资料第 {question.number} 题</span>
           </div>
-          <pre className="question-text">{question.prompt}</pre>
+          {hasOriginalCrop ? (
+            <div className="original-question">
+              <div className="original-question-label">
+                <span>原题扫描</span>
+                <span>加点、横线与编号已保留</span>
+              </div>
+              <div className="question-crop-scroll">
+                <img
+                  className="question-crop"
+                  src={questionCropPath(question.sectionId, question.id)}
+                  alt={`${question.sectionTitle}第 ${question.number} 题原题`}
+                />
+              </div>
+              <details className="ocr-details">
+                <summary>查看文字识别版</summary>
+                <pre className="question-text">{question.prompt}</pre>
+              </details>
+            </div>
+          ) : (
+            <pre className="question-text">{question.prompt}</pre>
+          )}
 
           <div className="source-actions">
             {question.sourcePage && builtInSections.some((item) => item.id === question.sectionId) && (
@@ -513,17 +542,13 @@ export default function Home() {
             <button className="secondary-button large" onClick={() => setView("wrong")}>复习错题（{wrongEntries.length}）</button>
           </div>
         </div>
-        <div className="hero-dashboard" aria-label="练习统计">
-          <div className="dashboard-top"><span>今日积累</span><span className="live-dot">本机保存</span></div>
-          <div className="mastery-ring" style={{ "--mastery": `${accuracy * 3.6}deg` } as React.CSSProperties}>
-            <div><strong>{accuracy}%</strong><span>累计正确率</span></div>
+        <div className="hero-visual" aria-label="语文学习插画与练习统计">
+          <img src="/illustrations/hero-modern.jpg" alt="现代风格的语文学习插画" />
+          <div className="hero-stat-card">
+            <span><strong>{accuracy}%</strong>累计正确率</span>
+            <span><strong>{stats.answered}</strong>已答题</span>
+            <span><strong>{wrongEntries.length}</strong>待巩固</span>
           </div>
-          <div className="dashboard-stats">
-            <div><strong>{stats.answered}</strong><span>已答题</span></div>
-            <div><strong>{stats.sessions}</strong><span>已完成</span></div>
-            <div><strong>{wrongEntries.length}</strong><span>待巩固</span></div>
-          </div>
-          <blockquote>“不积跬步，无以至千里。”</blockquote>
         </div>
       </section>
 
@@ -540,11 +565,19 @@ export default function Home() {
             const percent = progress.total ? Math.round((progress.seen / progress.total) * 100) : 0;
             return (
               <article className="section-card" key={section.id} style={{ "--card-accent": section.accent } as React.CSSProperties}>
-                <div className="card-top"><span className="card-icon">{section.icon}</span><span className="question-total">{section.questionCount} 题</span></div>
-                <h3>{section.title}</h3>
-                <p>本轮已覆盖 {progress.seen} / {progress.total}</p>
-                <div className="mini-progress"><span style={{ width: `${percent}%` }} /></div>
-                <button onClick={() => startSection(section)}>随机练 20 题 <span>→</span></button>
+                {builtInSections.some((item) => item.id === section.id) && (
+                  <div className="card-image">
+                    <img src={sectionIllustrationPath(section.id)} alt="" />
+                    <span className="question-total">{section.questionCount} 题</span>
+                  </div>
+                )}
+                <div className="card-body">
+                  <div className="card-top"><span className="card-icon">{section.icon}</span><span>专项练习</span></div>
+                  <h3>{section.title}</h3>
+                  <p>本轮已覆盖 {progress.seen} / {progress.total}</p>
+                  <div className="mini-progress"><span style={{ width: `${percent}%` }} /></div>
+                  <button onClick={() => startSection(section)}>随机练 20 题 <span>→</span></button>
+                </div>
               </article>
             );
           })}
