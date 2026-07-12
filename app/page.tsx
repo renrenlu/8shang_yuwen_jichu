@@ -399,13 +399,14 @@ export default function Home() {
           <div className="question-meta">
             <span className="section-chip">{question.sectionTitle}</span>
             {question.label && <span>{question.label}</span>}
-            <span>原资料第 {question.number} 题</span>
+            <span>原题编号 {question.number}</span>
+            {question.sourcePage && <span>PDF 第 {question.sourcePage} 页</span>}
           </div>
           {hasOriginalCrop ? (
             <div className="original-question">
               <div className="original-question-label">
                 <span>原题扫描</span>
-                <span>加点、横线与编号已保留</span>
+                <span>{question.sourcePage ? `PDF 第 ${question.sourcePage} 页 · ` : ""}加点、横线与编号已保留</span>
               </div>
               <div className="question-crop-scroll">
                 <img
@@ -425,8 +426,8 @@ export default function Home() {
 
           <div className="source-actions">
             {question.sourcePage && builtInSections.some((item) => item.id === question.sectionId) && (
-              <button className="source-button" onClick={() => setModalPage({ sectionId: question.sectionId, page: question.sourcePage!, label: "原题页" })}>
-                查看原题页 {question.needsSource ? "（建议对照）" : ""}
+              <button className="source-button" onClick={() => setModalPage({ sectionId: question.sectionId, page: question.sourcePage!, label: `原题页 · PDF 第 ${question.sourcePage} 页` })}>
+                查看 PDF 第 {question.sourcePage} 页 {question.needsSource ? "（建议对照）" : ""}
               </button>
             )}
           </div>
