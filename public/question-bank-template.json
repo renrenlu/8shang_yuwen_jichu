@@ -1,0 +1,29 @@
+{
+  "sections": [
+    {
+      "id": "new-section-unique-id",
+      "title": "新资料板块",
+      "accent": "#297a68",
+      "icon": "新",
+      "questionCount": 2,
+      "questions": [
+        {
+          "id": "new-section-1",
+          "canonicalId": "new-section-1",
+          "number": 1,
+          "prompt": "选择题题干。\nA. 选项一\nB. 选项二\nC. 选项三\nD. 选项四",
+          "answer": "A",
+          "mode": "choice"
+        },
+        {
+          "id": "new-section-2",
+          "canonicalId": "new-section-2",
+          "number": 2,
+          "prompt": "默写或简答题题干。",
+          "answer": "参考答案",
+          "mode": "self"
+        }
+      ]
+    }
+  ]
+}
