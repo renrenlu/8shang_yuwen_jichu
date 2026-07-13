@@ -551,21 +551,18 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">每次一小步，必背不再难</p>
-          <h1>把零散知识，<br /><em>练成你的底气。</em></h1>
+          <p className="eyebrow">语文基础知识互动练习</p>
+          <h1>每天练一点，<br /><em>知识记得更牢。</em></h1>
           <p className="hero-description">8 个资料板块，852 道题。每轮随机抽题，全部覆盖前不重复；答错自动收进错题本，随时回来巩固。</p>
           <div className="hero-actions">
             <button className="primary-button large" onClick={startComprehensive}>开始 30 题综合练习 <span>→</span></button>
             <button className="secondary-button large" onClick={() => setView("wrong")}>复习错题（{wrongEntries.length}）</button>
           </div>
         </div>
-        <div className="hero-visual" aria-label="语文学习插画与练习统计">
-          <img src="/illustrations/hero-modern.jpg" alt="现代风格的语文学习插画" />
-          <div className="hero-stat-card">
-            <span><strong>{accuracy}%</strong>累计正确率</span>
-            <span><strong>{stats.answered}</strong>已答题</span>
-            <span><strong>{wrongEntries.length}</strong>待巩固</span>
-          </div>
+        <div className="hero-stat-card" aria-label="练习统计">
+          <span><strong>{accuracy}%</strong>累计正确率</span>
+          <span><strong>{stats.answered}</strong>已答题</span>
+          <span><strong>{wrongEntries.length}</strong>待巩固</span>
         </div>
       </section>
 
@@ -585,11 +582,10 @@ export default function Home() {
                 {builtInSections.some((item) => item.id === section.id) && (
                   <div className="card-image">
                     <img src={sectionIllustrationPath(section.id)} alt="" />
-                    <span className="question-total">{section.questionCount} 题</span>
                   </div>
                 )}
                 <div className="card-body">
-                  <div className="card-top"><span className="card-icon">{section.icon}</span><span>专项练习</span></div>
+                  <div className="card-top"><span><span className="card-icon">{section.icon}</span>专项练习</span><span className="question-total">{section.questionCount} 题</span></div>
                   <h3>{section.title}</h3>
                   <p>本轮已覆盖 {progress.seen} / {progress.total}</p>
                   <div className="mini-progress"><span style={{ width: `${percent}%` }} /></div>
