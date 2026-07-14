@@ -10,6 +10,7 @@ import {
   selectCycleQuestions,
   shuffle,
 } from "./practice-logic";
+import { publicPath } from "./site-paths";
 
 type Question = {
   id: string;
@@ -83,15 +84,15 @@ function groupKey(sectionId: string) {
 }
 
 function imagePath(sectionId: string, page: number) {
-  return `/source/${sectionId}/page-${String(page).padStart(2, "0")}.jpg`;
+  return publicPath(`/source/${sectionId}/page-${String(page).padStart(2, "0")}.jpg`);
 }
 
 function questionCropPath(sectionId: string, questionId: string) {
-  return `/question-crops/${sectionId}/${questionId}.webp`;
+  return publicPath(`/question-crops/${sectionId}/${questionId}.webp`);
 }
 
 function sectionIllustrationPath(sectionId: string) {
-  return `/illustrations/${sectionId}.jpg`;
+  return publicPath(`/illustrations/${sectionId}.jpg`);
 }
 
 export default function Home() {
@@ -603,7 +604,7 @@ export default function Home() {
 
       <footer>
         <div><strong>语文必背 · 互动练习册</strong><p>进度保存在当前设备的浏览器中。</p></div>
-        <div className="footer-actions"><a href="/question-bank-template.json" download>下载题库模板</a><button onClick={resetProgress}>清空练习记录</button></div>
+        <div className="footer-actions"><a href={publicPath("/question-bank-template.json")} download>下载题库模板</a><button onClick={resetProgress}>清空练习记录</button></div>
       </footer>
     </main>
   );

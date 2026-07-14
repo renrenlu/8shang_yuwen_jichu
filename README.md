@@ -4,7 +4,7 @@
 
 ## 在线使用
 
-[直接打开互动练习册](https://yuwen-practice-852.renren49.chatgpt.site)
+[直接打开互动练习册](https://renrenlu.github.io/8shang_yuwen_jichu/)
 
 ## 功能
 
