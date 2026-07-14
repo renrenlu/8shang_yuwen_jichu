@@ -49,6 +49,7 @@ test("keeps the finished site free of starter preview assets", async () => {
 
   assert.match(page, /className="section-grid"/);
   assert.match(page, /className="hero-stat-card"/);
+  assert.match(page, /cycle: "yuwen-cycle-v2"/);
   assert.doesNotMatch(page, /hero-modern\.jpg|SkeletonPreview/);
   assert.match(layout, /og-simple\.jpg/);
   assert.match(css, /--primary:\s*#3f6559/);

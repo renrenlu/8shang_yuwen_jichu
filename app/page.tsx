@@ -1,7 +1,15 @@
 "use client";
 
-import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
+/* eslint-disable @next/next/no-img-element -- Exact PDF scans and generated local crops use dynamic paths. */
+
+import { ChangeEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import questionBank from "./question-bank.json";
+import {
+  allocateProportionalPlans,
+  mergeGroupSequences,
+  selectCycleQuestions,
+  shuffle,
+} from "./practice-logic";
 
 type Question = {
   id: string;
@@ -53,17 +61,8 @@ const STORAGE = {
   wrong: "yuwen-wrong-v1",
   stats: "yuwen-stats-v1",
   extra: "yuwen-extra-sections-v1",
-  cycle: "yuwen-cycle-v1",
+  cycle: "yuwen-cycle-v2",
 };
-
-function shuffle<T>(items: T[]): T[] {
-  const copy = [...items];
-  for (let index = copy.length - 1; index > 0; index -= 1) {
-    const target = Math.floor(Math.random() * (index + 1));
-    [copy[index], copy[target]] = [copy[target], copy[index]];
-  }
-  return copy;
-}
 
 function readJson<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") return fallback;
@@ -73,6 +72,10 @@ function readJson<T>(key: string, fallback: T): T {
   } catch {
     return fallback;
   }
+}
+
+function nowMs() {
+  return Date.now();
 }
 
 function groupKey(sectionId: string) {
@@ -109,9 +112,12 @@ export default function Home() {
   const importRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    setWrongEntries(readJson<WrongEntry[]>(STORAGE.wrong, []));
-    setStats(readJson<Stats>(STORAGE.stats, { answered: 0, correct: 0, sessions: 0 }));
-    setExtraSections(readJson<Section[]>(STORAGE.extra, []));
+    const frame = window.requestAnimationFrame(() => {
+      setWrongEntries(readJson<WrongEntry[]>(STORAGE.wrong, []));
+      setStats(readJson<Stats>(STORAGE.stats, { answered: 0, correct: 0, sessions: 0 }));
+      setExtraSections(readJson<Section[]>(STORAGE.extra, []));
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   const sections = useMemo(() => [...builtInSections, ...extraSections], [extraSections]);
@@ -138,51 +144,34 @@ export default function Home() {
 
   function drawPlans(plans: Array<{ section: Section; count: number }>) {
     const cycleState = readJson<Record<string, string[]>>(STORAGE.cycle, {});
-    const blocked = new Set<string>();
-    const picked: Array<Question & { sectionId: string; sectionTitle: string }> = [];
+    let blockedIds: string[] = [];
+    const groupedPicks = new Map<string, Array<Question & { sectionId: string; sectionTitle: string }>>();
 
     for (const plan of plans) {
+      if (plan.count <= 0 || !plan.section.questions.length) continue;
       const key = groupKey(plan.section.id);
       const groupSections = sections.filter((item) => groupKey(item.id) === key);
-      const groupUniverse = new Set(groupSections.flatMap((item) => item.questions.map((question) => question.canonicalId)));
-      let seen = new Set(cycleState[key] ?? []);
-      let candidates = shuffle(
-        plan.section.questions.filter((question) => !seen.has(question.canonicalId) && !blocked.has(question.canonicalId)),
-      );
-      const selection: Question[] = candidates.slice(0, plan.count);
-
-      if (selection.length < plan.count) {
-        const remainingInCycle = [...groupUniverse].filter((id) => !seen.has(id) && !blocked.has(id));
-        const matchingRemaining = shuffle(
-          plan.section.questions.filter((question) => remainingInCycle.includes(question.canonicalId)),
-        );
-        for (const question of matchingRemaining) {
-          if (selection.length >= plan.count) break;
-          if (!selection.some((item) => item.canonicalId === question.canonicalId)) selection.push(question);
-        }
-      }
-
-      if (selection.length < plan.count) {
-        seen = new Set();
-        candidates = shuffle(
-          plan.section.questions.filter(
-            (question) => !blocked.has(question.canonicalId) && !selection.some((item) => item.canonicalId === question.canonicalId),
-          ),
-        );
-        selection.push(...candidates.slice(0, plan.count - selection.length));
-      }
-
-      selection.forEach((question) => {
-        blocked.add(question.canonicalId);
-        seen.add(question.canonicalId);
-        picked.push({ ...question, sectionId: plan.section.id, sectionTitle: plan.section.title });
+      const universeIds = [...new Set(groupSections.flatMap((item) => item.questions.map((question) => question.canonicalId)))];
+      const result = selectCycleQuestions({
+        questions: plan.section.questions,
+        universeIds,
+        seenIds: cycleState[key] ?? [],
+        blockedIds,
+        count: plan.count,
       });
-      cycleState[key] = [...seen];
+      blockedIds = result.blockedIds;
+      cycleState[key] = result.seenIds;
+      const enriched = result.selection.map((question) => ({
+        ...question,
+        sectionId: plan.section.id,
+        sectionTitle: plan.section.title,
+      }));
+      groupedPicks.set(key, [...(groupedPicks.get(key) ?? []), ...enriched]);
     }
 
     window.localStorage.setItem(STORAGE.cycle, JSON.stringify(cycleState));
     setCycleRevision((value) => value + 1);
-    return shuffle(picked);
+    return mergeGroupSequences(groupedPicks);
   }
 
   function beginSession(next: Session) {
@@ -208,17 +197,11 @@ export default function Home() {
 
   function startComprehensive() {
     if (!sections.length) return;
-    const order = shuffle(sections);
-    const base = Math.floor(30 / sections.length);
-    const remainder = 30 % sections.length;
-    const plans = order.map((section, position) => ({
-      section,
-      count: Math.min(section.questions.length, base + (position < remainder ? 1 : 0)),
-    }));
+    const plans = allocateProportionalPlans(sections, 30);
     const questions = drawPlans(plans);
     beginSession({
       title: "综合练习",
-      subtitle: `${questions.length} 题 · 各板块等比例抽取`,
+      subtitle: `${questions.length} 题 · 按各板块题量同比例抽取`,
       questions,
     });
   }
@@ -243,9 +226,9 @@ export default function Home() {
     const existing = wrongEntries.find((entry) => entry.questionId === question.id);
     const next = existing
       ? wrongEntries.map((entry) =>
-          entry.questionId === question.id ? { ...entry, attempts: entry.attempts + 1, addedAt: Date.now() } : entry,
+          entry.questionId === question.id ? { ...entry, attempts: entry.attempts + 1, addedAt: nowMs() } : entry,
         )
-      : [...wrongEntries, { questionId: question.id, sectionId: question.sectionId, addedAt: Date.now(), attempts: 1 }];
+      : [...wrongEntries, { questionId: question.id, sectionId: question.sectionId, addedAt: nowMs(), attempts: 1 }];
     saveWrong(next);
   }
 
@@ -311,17 +294,35 @@ export default function Home() {
       const parsed = JSON.parse(await file.text()) as { sections?: Section[] } | Section[];
       const incoming = Array.isArray(parsed) ? parsed : parsed.sections;
       if (!incoming?.length) throw new Error("empty");
+      const existingSectionIds = new Set(sections.map((section) => section.id));
+      const existingQuestionIds = new Set(sections.flatMap((section) => section.questions.map((question) => question.id)));
+      const incomingSectionIds = new Set<string>();
+      const incomingQuestionIds = new Set<string>();
       const normalized = incoming.map((section, sectionIndex) => {
-        if (!section.title || !Array.isArray(section.questions)) throw new Error("shape");
-        const id = section.id || `custom-${Date.now()}-${sectionIndex}`;
-        const questions = section.questions.map((question, questionIndex) => ({
-          ...question,
-          id: question.id || `${id}-${questionIndex + 1}`,
-          canonicalId: question.canonicalId || `${id}-${questionIndex + 1}`,
-          number: question.number || questionIndex + 1,
-          answer: question.answer || "请自评",
-          mode: question.mode === "choice" ? "choice" : "self",
-        }));
+        if (!section.title || !Array.isArray(section.questions) || !section.questions.length) throw new Error("shape");
+        const id = section.id?.trim() || `custom-${nowMs()}-${sectionIndex}`;
+        if (existingSectionIds.has(id) || incomingSectionIds.has(id)) throw new Error("duplicate-section");
+        incomingSectionIds.add(id);
+        const sectionCanonicalIds = new Set<string>();
+        const questions = section.questions.map((question, questionIndex) => {
+          const questionId = question.id?.trim() || `${id}-${questionIndex + 1}`;
+          const canonicalId = question.canonicalId?.trim() || questionId;
+          const answer = question.answer?.trim() || "请自评";
+          if (typeof question.prompt !== "string" || !question.prompt.trim()) throw new Error("prompt");
+          if (existingQuestionIds.has(questionId) || incomingQuestionIds.has(questionId)) throw new Error("duplicate-question");
+          if (sectionCanonicalIds.has(canonicalId)) throw new Error("duplicate-canonical");
+          if (question.mode === "choice" && !LETTERS.includes(answer)) throw new Error("choice-answer");
+          incomingQuestionIds.add(questionId);
+          sectionCanonicalIds.add(canonicalId);
+          return {
+            ...question,
+            id: questionId,
+            canonicalId,
+            number: question.number || questionIndex + 1,
+            answer,
+            mode: question.mode === "choice" ? "choice" as const : "self" as const,
+          };
+        });
         return {
           ...section,
           id,
@@ -331,15 +332,12 @@ export default function Home() {
           questions,
         };
       });
-      const existingIds = new Set([...builtInSections, ...extraSections].map((section) => section.id));
-      const uniqueIncoming = normalized.filter((section) => !existingIds.has(section.id));
-      if (!uniqueIncoming.length) throw new Error("duplicate");
-      const next = [...extraSections, ...uniqueIncoming];
+      const next = [...extraSections, ...normalized];
       setExtraSections(next);
       window.localStorage.setItem(STORAGE.extra, JSON.stringify(next));
-      setNotice(`已加入 ${uniqueIncoming.length} 个新板块。`);
+      setNotice(`已加入 ${normalized.length} 个新板块。`);
     } catch {
-      setNotice("导入失败：请使用题库 JSON 模板，并确保板块编号不重复。");
+      setNotice("导入失败：请使用题库 JSON 模板；板块与题目编号不能重复，每个板块至少含 1 题。");
     }
   }
 
@@ -621,21 +619,60 @@ function PageModal({
   onClose: () => void;
 }) {
   const totalPages = SOURCE_PAGE_COUNTS[page.sectionId] ?? page.page;
-  const goToPage = (nextPage: number) => onPageChange(Math.min(totalPages, Math.max(1, nextPage)));
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const goToPage = useCallback(
+    (nextPage: number) => onPageChange(Math.min(totalPages, Math.max(1, nextPage))),
+    [onPageChange, totalPages],
+  );
+
+  useEffect(() => {
+    const opener = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const frame = window.requestAnimationFrame(() => {
+      dialogRef.current?.querySelector<HTMLElement>(".modal-close")?.focus();
+    });
+    return () => {
+      window.cancelAnimationFrame(frame);
+      opener?.focus();
+    };
+  }, []);
 
   useEffect(() => {
     const handleKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onClose();
+      }
       if (event.key === "ArrowLeft" && page.page > 1) goToPage(page.page - 1);
       if (event.key === "ArrowRight" && page.page < totalPages) goToPage(page.page + 1);
+      if (event.key === "Tab") {
+        const dialog = dialogRef.current;
+        const focusable = dialog
+          ? [...dialog.querySelectorAll<HTMLElement>('button:not(:disabled), a[href], [tabindex]:not([tabindex="-1"])')]
+          : [];
+        if (!dialog || !focusable.length) {
+          event.preventDefault();
+          dialog?.focus();
+          return;
+        }
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        const active = document.activeElement;
+        if (event.shiftKey && (active === first || !dialog.contains(active))) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && (active === last || !dialog.contains(active))) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [onClose, onPageChange, page.page, totalPages]);
+  }, [goToPage, onClose, page.page, totalPages]);
 
   return (
-    <div className="modal-backdrop" role="dialog" aria-modal="true" aria-label={page.label} onMouseDown={onClose}>
-      <div className="page-modal" onMouseDown={(event) => event.stopPropagation()}>
+    <div className="modal-backdrop" onMouseDown={onClose}>
+      <div ref={dialogRef} className="page-modal" role="dialog" aria-modal="true" aria-label={page.label} tabIndex={-1} onMouseDown={(event) => event.stopPropagation()}>
         <div className="modal-header">
           <div className="modal-title"><strong>{page.label}</strong><span>PDF 第 {page.page} / {totalPages} 页</span></div>
           <div className="modal-actions">
