@@ -39,6 +39,14 @@ test("GitHub Pages 导出文件使用仓库子路径", async () => {
     access(new URL("illustrations/chengyu.jpg", outputRoot)),
     access(new URL("question-crops/chengyu/chengyu-1.webp", outputRoot)),
     access(new URL("source/chengyu/page-01.jpg", outputRoot)),
+    access(new URL("illustrations/grammar-comprehensive.jpg", outputRoot)),
+    access(new URL("illustrations/moxie-100.jpg", outputRoot)),
+    access(new URL("question-crops/grammar-comprehensive/grammar-comprehensive-1.webp", outputRoot)),
+    access(new URL("source/grammar-comprehensive/page-19.jpg", outputRoot)),
+    access(new URL("question-crops/moxie-100/moxie-100-1.webp", outputRoot)),
+    access(new URL("source/moxie-100/page-103.jpg", outputRoot)),
+    access(new URL("answers/moxie-100/page-05.jpg", outputRoot)),
+    access(new URL("answer-crops/moxie-100/moxie-100-1.webp", outputRoot)),
   ]);
 
   const staticFiles = await collectFiles(new URL("_next/static/", outputRoot));
@@ -50,4 +58,6 @@ test("GitHub Pages 导出文件使用仓库子路径", async () => {
   assert.match(javascript, /\/8shang_yuwen_jichu/);
   assert.match(javascript, /\/question-crops\//);
   assert.match(javascript, /\/source\//);
+  assert.match(javascript, /\/answer-crops\//);
+  assert.match(javascript, /\/answers\//);
 });

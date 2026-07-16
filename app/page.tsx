@@ -23,6 +23,7 @@ type Question = {
   sourcePage?: number | null;
   answerPage?: number | null;
   needsSource?: boolean;
+  hasAnswerCrop?: boolean;
 };
 
 type Section = {
@@ -44,7 +45,7 @@ type Session = {
 
 type WrongEntry = { questionId: string; sectionId: string; addedAt: number; attempts: number };
 type Stats = { answered: number; correct: number; sessions: number };
-type ModalPage = { sectionId: string; page: number; label: string } | null;
+type ModalPage = { sectionId: string; page: number; label: string; document: "source" | "answer" } | null;
 
 const builtInSections = questionBank.sections as Section[];
 const LETTERS = ["A", "B", "C", "D"];
@@ -57,6 +58,11 @@ const SOURCE_PAGE_COUNTS: Record<string, number> = {
   literature: 34,
   "ziyin-a": 13,
   "ziyin-b": 13,
+  "grammar-comprehensive": 19,
+  "moxie-100": 103,
+};
+const ANSWER_PAGE_COUNTS: Record<string, number> = {
+  "moxie-100": 23,
 };
 const STORAGE = {
   wrong: "yuwen-wrong-v1",
@@ -83,12 +89,19 @@ function groupKey(sectionId: string) {
   return sectionId.startsWith("ziyin-") ? "ziyin" : sectionId;
 }
 
-function imagePath(sectionId: string, page: number) {
-  return publicPath(`/source/${sectionId}/page-${String(page).padStart(2, "0")}.jpg`);
+function imagePath(sectionId: string, page: number, document: "source" | "answer") {
+  const filename = `page-${String(page).padStart(2, "0")}.jpg`;
+  return document === "answer"
+    ? publicPath(`/answers/${sectionId}/${filename}`)
+    : publicPath(`/source/${sectionId}/${filename}`);
 }
 
 function questionCropPath(sectionId: string, questionId: string) {
   return publicPath(`/question-crops/${sectionId}/${questionId}.webp`);
+}
+
+function answerCropPath(sectionId: string, questionId: string) {
+  return publicPath(`/answer-crops/${sectionId}/${questionId}.webp`);
 }
 
 function sectionIllustrationPath(sectionId: string) {
@@ -122,6 +135,10 @@ export default function Home() {
   }, []);
 
   const sections = useMemo(() => [...builtInSections, ...extraSections], [extraSections]);
+  const totalQuestions = useMemo(
+    () => sections.reduce((sum, section) => sum + section.questions.length, 0),
+    [sections],
+  );
   const sectionById = useMemo(() => new Map(sections.map((section) => [section.id, section])), [sections]);
   const questionById = useMemo(() => {
     const entries: Array<[string, Question & { sectionId: string; sectionTitle: string }]> = [];
@@ -435,7 +452,7 @@ export default function Home() {
 
           <div className="source-actions">
             {question.sourcePage && builtInSections.some((item) => item.id === question.sectionId) && (
-              <button className="source-button" onClick={() => setModalPage({ sectionId: question.sectionId, page: question.sourcePage!, label: "原题页" })}>
+              <button className="source-button" onClick={() => setModalPage({ sectionId: question.sectionId, page: question.sourcePage!, label: "原题页", document: "source" })}>
                 查看 PDF 第 {question.sourcePage} 页 {question.needsSource ? "（建议对照）" : ""}
               </button>
             )}
@@ -473,14 +490,31 @@ export default function Home() {
 
           {revealed && (
             <div className={`answer-panel ${marked === true ? "answer-correct" : marked === false ? "answer-wrong" : ""}`}>
-              <div>
+              <div className="answer-summary">
                 <p className="answer-label">参考答案</p>
                 <strong>{question.answer}</strong>
               </div>
               {question.answerPage && builtInSections.some((item) => item.id === question.sectionId) && (
-                <button className="source-button" onClick={() => setModalPage({ sectionId: question.sectionId, page: question.answerPage!, label: "参考答案页" })}>
+                <button className="source-button" onClick={() => setModalPage({
+                  sectionId: question.sectionId,
+                  page: question.answerPage!,
+                  label: "参考答案页",
+                  document: ANSWER_PAGE_COUNTS[question.sectionId] ? "answer" : "source",
+                })}>
                   查看参考答案原页
                 </button>
+              )}
+              {question.hasAnswerCrop && (
+                <div className="answer-original">
+                  <p className="answer-label">配套答案原图 · 已按篇目一一对应</p>
+                  <div className="answer-crop-scroll">
+                    <img
+                      className="answer-crop"
+                      src={answerCropPath(question.sectionId, question.id)}
+                      alt={`${question.sectionTitle}第 ${question.number} 题配套答案`}
+                    />
+                  </div>
+                </div>
               )}
             </div>
           )}
@@ -552,7 +586,7 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow">语文基础知识互动练习</p>
           <h1>每天练一点，<br /><em>知识记得更牢。</em></h1>
-          <p className="hero-description">8 个资料板块，852 道题。每轮随机抽题，全部覆盖前不重复；答错自动收进错题本，随时回来巩固。</p>
+          <p className="hero-description">{sections.length} 个资料板块，{totalQuestions} 道题。每轮随机抽题，全部覆盖前不重复；答错自动收进错题本，随时回来巩固。</p>
           <div className="hero-actions">
             <button className="primary-button large" onClick={startComprehensive}>开始 30 题综合练习 <span>→</span></button>
             <button className="secondary-button large" onClick={() => setView("wrong")}>复习错题（{wrongEntries.length}）</button>
@@ -619,7 +653,7 @@ function PageModal({
   onPageChange: (page: number) => void;
   onClose: () => void;
 }) {
-  const totalPages = SOURCE_PAGE_COUNTS[page.sectionId] ?? page.page;
+  const totalPages = (page.document === "answer" ? ANSWER_PAGE_COUNTS : SOURCE_PAGE_COUNTS)[page.sectionId] ?? page.page;
   const dialogRef = useRef<HTMLDivElement>(null);
   const goToPage = useCallback(
     (nextPage: number) => onPageChange(Math.min(totalPages, Math.max(1, nextPage))),
@@ -684,7 +718,7 @@ function PageModal({
             <button className="modal-close" onClick={onClose} aria-label="关闭">×</button>
           </div>
         </div>
-        <div key={`${page.sectionId}-${page.page}`} className="page-image-wrap"><img src={imagePath(page.sectionId, page.page)} alt={`${page.label}，PDF 第 ${page.page} 页`} /></div>
+        <div key={`${page.sectionId}-${page.document}-${page.page}`} className="page-image-wrap"><img src={imagePath(page.sectionId, page.page, page.document)} alt={`${page.label}，PDF 第 ${page.page} 页`} /></div>
       </div>
     </div>
   );

@@ -31,6 +31,8 @@ test("allocates a 30-question comprehensive session by section size", () => {
     makeSection("literature", 91),
     makeSection("ziyin-a", 102),
     makeSection("ziyin-b", 102),
+    makeSection("grammar-comprehensive", 79),
+    makeSection("moxie-100", 124),
   ];
   const plans = allocateProportionalPlans(sections, 30, seededRandom(7));
   const counts = new Map(plans.map((plan) => [plan.section.id, plan.count]));
@@ -39,12 +41,14 @@ test("allocates a 30-question comprehensive session by section size", () => {
   assert.deepEqual(Object.fromEntries(sections.map((section) => [section.id, counts.get(section.id) ?? 0])), {
     chengyu: 2,
     ciyu: 2,
-    "poetry-memory": 11,
-    "gushi-compare": 2,
+    "poetry-memory": 9,
+    "gushi-compare": 1,
     "sentence-order": 2,
     literature: 3,
-    "ziyin-a": 4,
-    "ziyin-b": 4,
+    "ziyin-a": 3,
+    "ziyin-b": 3,
+    "grammar-comprehensive": 2,
+    "moxie-100": 3,
   });
 });
 
@@ -57,7 +61,7 @@ test("redistributes capacity and still returns the requested total", () => {
 });
 
 test("never repeats a question before the full cycle has appeared", () => {
-  for (const size of [50, 54, 61, 72, 91, 102, 320]) {
+  for (const size of [50, 54, 61, 72, 79, 91, 102, 124, 320]) {
     const questions = makeSection(`section-${size}`, size).questions;
     const universeIds = questions.map((question) => question.canonicalId);
     const random = seededRandom(size);
