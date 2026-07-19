@@ -62,6 +62,7 @@ const SOURCE_PAGE_COUNTS: Record<string, number> = {
   "moxie-100": 103,
 };
 const ANSWER_PAGE_COUNTS: Record<string, number> = {
+  literature: 3,
   "moxie-100": 23,
 };
 const STORAGE = {

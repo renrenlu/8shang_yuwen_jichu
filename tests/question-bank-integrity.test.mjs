@@ -10,6 +10,10 @@ const grammarAnswers = (
   "B C D B C D B D C A D D A B D D A D C D C D D D B C D C D D D C C B A C C C D"
 ).split(" ");
 
+const literatureAnswers1To47 = (
+  "A B B C B B D A C D B C D D B D A D C C C A A B BD B D A B A D B B A A C D C C D AC B C C C C D"
+).split(" ");
+
 const volumeCounts = {
   七年级上册: 19,
   七年级下册: 19,
@@ -80,6 +84,38 @@ test("grammar section preserves all 79 verified choice answers", async () => {
   assert.ok(section.questions.every((question) => question.mode === "choice"));
 });
 
+test("literature section matches the 91 Topic 4 questions and its answer booklet", async () => {
+  const bank = await loadQuestionBank();
+  const section = bank.sections.find((item) => item.id === "literature");
+
+  assert.ok(section);
+  assert.equal(section.questions.length, 91);
+  assert.deepEqual(section.questions.map((question) => question.number), Array.from({ length: 91 }, (_, index) => index + 1));
+  assert.deepEqual(section.questions.slice(0, 47).map((question) => question.answer), literatureAnswers1To47);
+  assert.equal(section.questions.find((question) => question.number === 79)?.answer, "B");
+  assert.equal(section.questions.filter((question) => question.mode === "choice").length, 46);
+  assert.equal(section.questions.filter((question) => question.mode === "self").length, 45);
+  assert.equal(section.questions.find((question) => question.number === 25)?.mode, "self");
+  assert.equal(section.questions.find((question) => question.number === 41)?.mode, "self");
+  assert.ok(section.questions.every((question) => question.label === "专题四"));
+  assert.ok(section.questions.every((question) => !question.prompt.includes("识别文字不完整")));
+  assert.ok(section.questions.every((question) => !question.answer.includes("请对照参考答案原页自评")));
+  assert.deepEqual(
+    Object.fromEntries(
+      Object.entries(Object.groupBy(section.questions, (question) => question.answerPage)).map(([page, questions]) => [
+        page,
+        questions.length,
+      ]),
+    ),
+    { 1: 65, 2: 15, 3: 11 },
+  );
+  assert.match(section.questions.find((question) => question.number === 65)?.answer ?? "", /奥斯特洛夫斯基/);
+  assert.match(section.questions.find((question) => question.number === 80)?.answer ?? "", /花和尚/);
+  assert.match(section.questions.find((question) => question.number === 91)?.answer ?? "", /曹先生/);
+
+  await Promise.all(Array.from({ length: 3 }, (_, index) => assertNonemptyFile(`answers/literature/${pageName(index + 1)}`)));
+});
+
 test("moxie section keeps 124 units aligned with its answer scans", async () => {
   const bank = await loadQuestionBank();
   const section = bank.sections.find((item) => item.id === "moxie-100");
@@ -128,6 +164,10 @@ test("new scan directories contain every expected file and no orphans", async ()
     assertFlatDirectoryMatches(
       "source/moxie-100",
       Array.from({ length: 103 }, (_, index) => pageName(index + 1)),
+    ),
+    assertFlatDirectoryMatches(
+      "answers/literature",
+      Array.from({ length: 3 }, (_, index) => pageName(index + 1)),
     ),
     assertFlatDirectoryMatches(
       "answers/moxie-100",

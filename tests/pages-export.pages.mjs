@@ -45,6 +45,7 @@ test("GitHub Pages 导出文件使用仓库子路径", async () => {
     access(new URL("source/grammar-comprehensive/page-19.jpg", outputRoot)),
     access(new URL("question-crops/moxie-100/moxie-100-1.webp", outputRoot)),
     access(new URL("source/moxie-100/page-103.jpg", outputRoot)),
+    access(new URL("answers/literature/page-03.jpg", outputRoot)),
     access(new URL("answers/moxie-100/page-05.jpg", outputRoot)),
     access(new URL("answer-crops/moxie-100/moxie-100-1.webp", outputRoot)),
   ]);
